@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-07-10T03:47:41.757Z",
+  "projectRoot": "C:\\Users\\lucas.sales\\Documents\\GitHub\\olist-recompra-mlops",
+  "structure": {
+    "hasPackageJson": false,
+    "hasTsConfig": false,
+    "hasClaudeConfig": true,
+    "hasClaudeFlow": true
+  },
+  "scannedAt": 1783655261757
+}
