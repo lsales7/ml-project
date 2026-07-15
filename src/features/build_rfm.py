@@ -1,10 +1,10 @@
 import pandas as pd
 
 # Data de recencia
-def calcular_recencia(df, data_max):
+def calcular_recencia(df, data_referencia):
     df['order_purchase_timestamp'] = pd.to_datetime(df['order_purchase_timestamp'])
     recencia = df.groupby('customer_unique_id')['order_purchase_timestamp'].max()
-    recencia = (data_max - recencia).dt.days
+    recencia = (data_referencia - recencia).dt.days
     return recencia
 
 #Frquencia de compra
@@ -14,7 +14,8 @@ def calcular_frequencia(df):
 
 # Valor pago
 def calcular_monetario(df):
-    monetario = df.groupby('customer_unique_id')['price'].sum()
+    df['full_price'] = df['price'] + df['freight_value']
+    monetario = df.groupby('customer_unique_id')['full_price'].sum()
     return monetario
 
 # Tabela rfm com features
@@ -51,7 +52,7 @@ def calcular_target(df, clientes, data_inicio, data_fim):
     target.name = 'target'
     return target
 
-#Dataframe com a data de 
+#dataframe com a data do target
 def montar_rfm_com_target(df, data_corte, data_fim_target):
     data_corte = pd.to_datetime(data_corte)
     data_fim_target = pd.to_datetime(data_fim_target)
