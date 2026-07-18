@@ -215,12 +215,27 @@ marimo/_lsp/
 __marimo__/
 
 # Streamlit
-<<<<<<< HEAD
 .streamlit/secrets.toml
-=======
 .streamlit/secrets.
 
 #Claude
 .claude/
->>>>>>> 5ffed7c (taxa clientes recompra)
 .claude-flow/
+CLAUDE.md
+
+# Data files
+data/raw/
+data/processed/
+*.csv
+*.parquet
+*.pkl
+*.joblib
+
+# ML artifacts
+*.model
+*.h5
+*.pt
+*.onnx
+mlruns/
+mlartifacts/
+wandb/
