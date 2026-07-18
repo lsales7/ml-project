@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 from features.build_rfm import montar_rfm_com_target
 
 #Carregando dataset

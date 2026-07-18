@@ -2,6 +2,7 @@ import pandas as pd
 
 # Data de recencia
 def calcular_recencia(df, data_referencia):
+    df = df.copy()
     df['order_purchase_timestamp'] = pd.to_datetime(df['order_purchase_timestamp'])
     recencia = df.groupby('customer_unique_id')['order_purchase_timestamp'].max()
     recencia = (data_referencia - recencia).dt.days
@@ -14,6 +15,7 @@ def calcular_frequencia(df):
 
 # Valor pago
 def calcular_monetario(df):
+    df = df.copy
     df['full_price'] = df['price'] + df['freight_value']
     monetario = df.groupby('customer_unique_id')['full_price'].sum()
     return monetario
